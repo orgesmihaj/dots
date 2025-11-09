@@ -1,0 +1,47 @@
+
+[user]
+  name = Orges Mihaj
+  email = contact@mihaj.org
+
+[alias]
+  st = status
+  co = checkout
+  br = branch
+  cm = commit -m
+  ca = commit -a
+  df = diff
+  lg = log --oneline --graph --decorate
+  amend = commit --amend
+  undo = reset --soft HEAD~1
+  who = shortlog -sn
+  fix = commit --fixup
+  squash = rebase -i --autosquash HEAD~5
+
+[core] 
+  editor = nvim
+  autocrlf = input
+  excludesfile = ~/.gitignore  
+  filemode = true
+  pager = less -FXR
+  whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+
+[init]
+  defaultBranch = main
+
+[color]
+  ui = auto
+
+[push]
+  default = current
+
+[pull]
+  rebase = true
+
+[merge]
+  tool = nvimdiff
+  conflictstyle = diff3
+
+[diff]
+  algorithm = histogram
+  tool = nvimdiff
+  colorMoved = default
