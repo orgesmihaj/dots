@@ -1,12 +1,15 @@
+# -----------------------------------------------------
 # Theme
+# -----------------------------------------------------
 
 theme = "Catppuccin Mocha"
 
 window-colorspace = display-p3
 window-padding-color = extend-always
 
-
-# Typography & Font configuration 
+# -----------------------------------------------------
+# Typography & Font configuration
+# -----------------------------------------------------
 
 font-size = 14
 
@@ -17,8 +20,9 @@ font-family-bold-italic = "MonoLisa Variable"
 
 window-title-font-family = "MonoLisa Variable"
 
-
+# -----------------------------------------------------
 # Visual adjustments & Spacing
+# -----------------------------------------------------
 
 adjust-underline-position = 6
 adjust-cell-height = "20%"
@@ -28,15 +32,17 @@ cursor-style-blink = false
 window-padding-x = 12
 window-padding-y = 0
 window-padding-balance = true
-
  
-# Window Configuration
+# -----------------------------------------------------
+# Window configuration
+# -----------------------------------------------------
 
 window-width = 120
 window-height = 30
 
-
+# -----------------------------------------------------
 # System integration
+# -----------------------------------------------------
 
 shell-integration-features = no-cursor,sudo,no-title
 mouse-hide-while-typing = true
