@@ -48,3 +48,18 @@ macos-option-as-alt = left
 # -----------------------------------------------------
 
 shell-integration-features = no-cursor,sudo,no-title
+
+# -----------------------------------------------------
+# Keybindings
+# -----------------------------------------------------
+
+keybind = super+c=copy_to_clipboard
+keybind = super+v=paste_from_clipboard
+
+keybind = super+enter=new_split:right
+keybind = super+shift+enter=new_split:down
+
+keybind = super+h=goto_split:left
+keybind = super+j=goto_split:bottom
+keybind = super+k=goto_split:top
+keybind = super+l=goto_split:right
