@@ -27,5 +27,8 @@ source "$ZINIT_HOME/zinit.zsh"
 zinit wait lucid light-mode for \
   zsh-users/zsh-autosuggestions \
   zsh-users/zsh-completions \
-  Aloxaf/fzf-tab \
+  Aloxaf/fzf-tab
+
+zinit wait'0' lucid light-mode for \ 
   zsh-users/zsh-syntax-highlighting
+
