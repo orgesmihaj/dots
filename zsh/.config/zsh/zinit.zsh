@@ -29,6 +29,6 @@ zinit wait lucid light-mode for \
   zsh-users/zsh-completions \
   Aloxaf/fzf-tab
 
-zinit wait'0' lucid light-mode for \ 
+zinit wait'0' lucid light-mode for \
   zsh-users/zsh-syntax-highlighting
 
