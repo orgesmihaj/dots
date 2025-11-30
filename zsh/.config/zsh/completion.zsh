@@ -13,9 +13,9 @@ zstyle ':completion:*' cache-path \
 # ─── matching rules ────────────────────────────────────────────────
 
 zstyle ':completion:*' matcher-list \
-  'm:{a-zA-Z}={A-Za-z}' \              # case-insensitive matching
-  'r:|[._-]=**' \                      # treat . _ - as wildcard separators
-  'l:|=* r:|=*'                        # "fuzzy-ish" matching on both ends
+  'm:{a-zA-Z}={A-Za-z}' \
+  'r:|[._-]=**' \
+  'l:|=* r:|=*'
 
 # ─── colorized completion lists ────────────────────────────────────
 
