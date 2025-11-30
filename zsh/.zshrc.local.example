@@ -1,0 +1,11 @@
+# Copy this to ~/.zshrc.local and customize
+# This file is ignored by git
+
+# Work-specific paths
+# export PATH="$HOME/work/bin:$PATH"
+
+# Work aliases
+# alias work-vpn="sudo openvpn /etc/work/config.ovpn"
+
+# Work environment variables
+# export WORK_PROJECT_DIR="$HOME/work/projects"
