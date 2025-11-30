@@ -1,7 +1,7 @@
-# ───  aliases.zsh  ────────────────────────────────────────────────╯
+# ─── aliases.zsh  ────────────────────────────────────────────────╯
 
 
-# ─── navigation ────────────────────────────────────────────────────
+# ─── navigation ───────────────────────────────────────────────────
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -9,7 +9,7 @@ alias ....='cd ../../..'
 alias -- -='cd -'
 alias mkcd='mkdir -p "$1" && cd "$1"'
 
-# ─── file ops ──────────────────────────────────────────────────────
+# ─── file ops ─────────────────────────────────────────────────────
 
 alias ls='ls --color=auto 2>/dev/null || ls -G'
 
@@ -21,7 +21,7 @@ else
   alias la='ls -AG'
 fi
 
-# ─── files / content ───────────────────────────────────────────────
+# ─── files / content ──────────────────────────────────────────────
 
 alias rm='rm -i'
 alias mv='mv -i'
@@ -44,7 +44,7 @@ extract() {
   esac
 }
 
-# ─── git ───────────────────────────────────────────────────────────
+# ─── git ──────────────────────────────────────────────────────────
 
 alias gs='git status'
 alias ga='git add'
@@ -70,13 +70,13 @@ fi
 alias grep='grep --color=auto'
 alias please='sudo $(fc -ln -1)'
 
-# ─── networking / debug ────────────────────────────────────────────
+# ─── networking / debug ───────────────────────────────────────────
 
 alias myip='curl ifconfig.me'
 alias ports='lsof -i -P -n'
 alias pingg='ping google.com'
 
-# ─── zsh-specific ──────────────────────────────────────────────────
+# ─── zsh-specific ─────────────────────────────────────────────────
 
 alias reload='source ~/.zshrc'
 alias path='echo -e ${PATH//:/\\n}'
