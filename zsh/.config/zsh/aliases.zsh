@@ -11,15 +11,9 @@ alias mkcd='mkdir -p "$1" && cd "$1"'
 
 # ─── file ops ─────────────────────────────────────────────────────
 
-alias ls='ls --color=auto 2>/dev/null || ls -G'
-
-if ls --color=auto > /dev/null 2>&1; then
-  alias ll='ls -alh --color=auto'
-  alias la='ls -A --color=auto'
-else
-  alias ll='ls -alhG'
-  alias la='ls -AG'
-fi
+alias ls='ls --color=auto'
+alias ll='ls -alh --color=auto'
+alias la='ls -A --color=auto'
 
 # ─── files / content ──────────────────────────────────────────────
 
