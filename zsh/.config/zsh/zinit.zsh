@@ -1,11 +1,11 @@
-# ───  zinit.zsh  ───────────────────────────────────────────────────╯
+# ─── zinit.zsh  ───────────────────────────────────────────────────╯
 
-# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-# ┃  Zinit: Zsh plugin manager                                       ┃ 
-# ┃                                                                  ┃
-# ┃  Flexible and fast Zsh plugin manager that lets you install      ┃
-# ┃  pluginsdirectly from GitHub and many other sources.             ┃
-# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+# ┃  Zinit: Zsh plugin manager                                      ┃ 
+# ┃                                                                 ┃
+# ┃  Flexible and fast Zsh plugin manager that lets you install     ┃
+# ┃  pluginsdirectly from GitHub and many other sources.            ┃
+# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -22,7 +22,7 @@ fi
 # 🚀
 source "$ZINIT_HOME/zinit.zsh"
 
-# ─── plugins ───────────────────────────────────────────────────────
+# ─── plugins ──────────────────────────────────────────────────────
 
 zinit wait lucid light-mode for \
   zsh-users/zsh-autosuggestions \
