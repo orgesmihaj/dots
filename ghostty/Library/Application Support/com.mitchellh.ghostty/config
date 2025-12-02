@@ -1,6 +1,6 @@
 # ─── ghostty config  ──────────────────────────────────────────────╯
 
-# ─── apperance ────────────────────────────────────────────────────
+# ─── apperance ─────────────────────────────────────────────────────
 
 theme = "Catppuccin Mocha"
 
@@ -17,7 +17,7 @@ window-title-font-family = "MonoLisa Variable"
 
 cursor-style-blink = false
 
-# ─── layout ───────────────────────────────────────────────────────
+# ─── layout ────────────────────────────────────────────────────────
 
 adjust-underline-position = 6
 adjust-cell-height = "20%"
@@ -30,7 +30,7 @@ window-padding-balance = true
 window-width = 120
 window-height = 30
 
-# ─── interaction behavior ─────────────────────────────────────────
+# ─── interaction behavior ──────────────────────────────────────────
 
 copy-on-select = clipboard
 link-url = true
@@ -39,11 +39,11 @@ focus-follows-mouse = false
 mouse-hide-while-typing = true
 macos-option-as-alt = left
 
-# ─── platform / runtime integration ───────────────────────────────
+# ─── platform / runtime integration ────────────────────────────────
 
 shell-integration-features = no-cursor,sudo,no-title
 
-# ─── keybindings ──────────────────────────────────────────────────
+# ─── keybindings ───────────────────────────────────────────────────
 
 keybind = super+c=copy_to_clipboard
 keybind = super+v=paste_from_clipboard
