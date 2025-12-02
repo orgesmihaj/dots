@@ -11,8 +11,5 @@
 # ┃ logic, which can slow or break scripts and automation.          ┃
 # ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
-export PATH="/usr/local/bin:$HOME/bin:$PATH"
 export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
-
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:/usr/local/bin:$HOME/bin:$PATH"
