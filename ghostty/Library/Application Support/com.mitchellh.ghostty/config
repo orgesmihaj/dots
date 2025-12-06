@@ -17,6 +17,9 @@ window-title-font-family = "MonoLisa Variable"
 
 cursor-style-blink = false
 
+macos-icon = custom
+macos-custom-icon = "~/.config/ghostty/ghostty.icns"
+
 # ─── layout ────────────────────────────────────────────────────────
 
 adjust-underline-position = 6
