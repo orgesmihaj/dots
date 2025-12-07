@@ -1,6 +1,5 @@
 # ─── aliases.zsh  ────────────────────────────────────────────────╯
 
-
 # ─── navigation ───────────────────────────────────────────────────
 
 alias ..='cd ..'
@@ -22,7 +21,7 @@ alias mv='mv -i'
 alias cp='cp -i'
 
 if command -v bat >/dev/null; then
-  alias c='bat --style=plain'
+  alias cat='bat --style=plain'
 fi
 
 alias duh='du -h --max-depth=1'
