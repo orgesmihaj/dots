@@ -24,7 +24,7 @@ if command -v bat >/dev/null; then
   alias cat='bat --style=plain'
 fi
 
-alias duh='du -h --max-depth=1'
+alias duh='du -h -d 1'
 
 extract() {
   case "$1" in
@@ -74,3 +74,4 @@ alias pingg='ping google.com'
 alias reload='source ~/.zshrc'
 alias path='echo -e ${PATH//:/\\n}'
 alias c='printf "\033c"'
+alias aliases='cat ~/.config/zsh/aliases.zsh'
