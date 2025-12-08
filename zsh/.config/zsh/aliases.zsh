@@ -25,6 +25,7 @@ if command -v bat >/dev/null; then
 fi
 
 alias duh='du -h -d 1'
+alias dusort='du -sh * | sort -hr'
 
 extract() {
   case "$1" in
