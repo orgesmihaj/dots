@@ -8,10 +8,10 @@ window-colorspace = display-p3
 window-padding-color = extend-always
 
 font-size = 14
-font-family = "MonoLisa Variable"
-font-family-bold = "MonoLisa Variable"
-font-family-italic = "MonoLisa Variable"
-font-family-bold-italic = "MonoLisa Variable"
+font-family = "JetBrainsMono Nerd Font"
+font-family-bold = "JetBrainsMono Nerd Font"
+font-family-italic = "JetBrainsMono Nerd Font"
+font-family-bold-italic = "JetBrainsMono Nerd Font"
 
 window-title-font-family = "MonoLisa Variable"
 
