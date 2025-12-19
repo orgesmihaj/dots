@@ -1,16 +1,37 @@
-console_title_template = '{{ .Shell }} in {{ .Folder }}'
-version = 3
+# ─── ohmyposh  ────────────────────────────────────────────────────╯
+
+"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+version = 4
 final_space = true
 
-[secondary_prompt]
-  template = '❯❯ '
-  foreground = 'magenta'
-  background = 'transparent'
+[[blocks]]
+  type = "prompt"
+  alignment = "left"
 
-[transient_prompt]
-  template = '❯ '
-  background = 'transparent'
-  foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
+  [[blocks.segments]]
+    type = "path"
+    style = "plain"
+    foreground = "p:blue"
+    template = "{{ .Path }} "
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+      style = 'agnoster_short'
+      max_depth = 3
+
+  [[blocks.segments]]
+    type = "git"
+    style = "plain"
+    foreground = "p:lavender"
+    template = """git: {{ .HEAD }}\
+      {{ if .Working.Changed }}*{{ end }}\
+      {{ if .Staging.Changed }}+{{ end }}\
+    """
+
+      [blocks.segments.properties]
+        branch_icon = ''
+        fetch_status = true
+        fetch_upstream_icon = false
 
 [[blocks]]
   type = 'prompt'
@@ -18,55 +39,14 @@ final_space = true
   newline = true
 
   [[blocks.segments]]
-    template = '{{ .Path }}'
-    foreground = 'blue'
-    background = 'transparent'
-    type = 'path'
-    style = 'plain'
+    type = "text"
+    style = "plain"
+    foreground = "p:closer"
+    template = "·"
 
-    [blocks.segments.properties]
-      cache_duration = 'none'
-      style = 'full'
-
-  [[blocks.segments]]
-    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
-    foreground = 'p:grey'
-    background = 'transparent'
-    type = 'git'
-    style = 'plain'
-
-    [blocks.segments.properties]
-      branch_icon = ''
-      cache_duration = 'none'
-      commit_icon = '@'
-      fetch_status = true
-
-[[blocks]]
-  type = 'rprompt'
-  overflow = 'hidden'
-
-  [[blocks.segments]]
-    template = '{{ .FormattedMs }}'
-    foreground = 'yellow'
-    background = 'transparent'
-    type = 'executiontime'
-    style = 'plain'
-
-    [blocks.segments.properties]
-      cache_duration = 'none'
-      threshold = 5000
-
-[[blocks]]
-  type = 'prompt'
-  alignment = 'left'
-  newline = true
-
-  [[blocks.segments]]
-    template = '❯'
-    background = 'transparent'
-    type = 'text'
-    style = 'plain'
-    foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
-
-    [blocks.segments.properties]
-      cache_duration = 'none'
+[palette]
+  os = "#ACB0BE"
+  closer = "p:os"
+  pink = "#F4B8E4"
+  lavender = "#BABBF1"
+  blue = "#8CAAEE"
