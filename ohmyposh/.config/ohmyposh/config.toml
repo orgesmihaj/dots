@@ -45,8 +45,6 @@ final_space = true
     template = "·"
 
 [palette]
-  os = "#ACB0BE"
   closer = "p:os"
-  pink = "#F4B8E4"
   lavender = "#BABBF1"
   blue = "#8CAAEE"
