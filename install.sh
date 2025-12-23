@@ -252,7 +252,7 @@ install_dependencies() {
 			print_info "Would install: $cask"
 		else
 			if brew list --cask "$cask" &>/dev/null; then
-				print_success "$cask already installed"
+				print_success "$cask already instakelled"
 			else
 				print_info "Installing $cask..."
 				brew install --cask "$cask"
@@ -271,7 +271,7 @@ post_install() {
 		print_info "Creating .zshrc.local for local customizations"
 
 		if [[ "$DRY_RUN" == false ]]; then
-			printf "%s\n" "$LOCAL_ZSHRC_CONTENT" > "$HOME/.config/zsh/.zshrc.local"
+			printf "%s\n" "${ZSHRC_LOCAL_CONTENT[@]}" > "$HOME/.config/zsh/.zshrc.local"
 			print_success "Created .zshrc.local"
 		else
 			print_info "Would create .zshrc.local"
