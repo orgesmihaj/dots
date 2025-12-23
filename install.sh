@@ -34,6 +34,15 @@ CASKS=(
 	"ghostty"
 )
 
+STOW_IGNORE_PATTERNS=(
+	'\.DS_Store$'
+	'\.git$'
+	'\.gitignore$'
+	'\.swp$'
+	'\.swo$'
+	'~$'
+)
+
 # ─── help ──────────────────────────────────────────────────────────────
 
 readonly HELP_TEXT=("
@@ -154,6 +163,10 @@ stow_dotfiles() {
 
 	$DRY_RUN && stow_args+=(--simulate)
 	$RESTOW && stow_args+=(--restow)
+
+	for pattern in "${STOW_IGNORE_PATTERNS[@]}"; do
+		stow_args+=(--ignore="$pattern")
+	done
 
 	for package in "${PACKAGES[@]}"; do
 		if [[ ! -d "$package" ]]; then
