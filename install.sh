@@ -267,11 +267,11 @@ post_install() {
 	print_header "Post-Installation"
 	print_info "Zinit will auto-install on first Zsh launch"
 
-	if [[ ! -f "$HOME/.config/zsh/.zshrc.local" ]]; then
+	if [[ ! -f "$HOME/.zshrc.local" ]]; then
 		print_info "Creating .zshrc.local for local customizations"
 
 		if [[ "$DRY_RUN" == false ]]; then
-			printf "%s\n" "${ZSHRC_LOCAL_CONTENT[@]}" > "$HOME/.config/zsh/.zshrc.local"
+			printf "%s\n" "${ZSHRC_LOCAL_CONTENT[@]}" > "$HOME/.zshrc.local"
 			print_success "Created .zshrc.local"
 		else
 			print_info "Would create .zshrc.local"

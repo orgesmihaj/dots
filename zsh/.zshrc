@@ -13,6 +13,6 @@ source "$ZDOTDIR/prompt.zsh"
 
 # Source local config if it exists (not tracked in git)
 
-if [[ -f "${ZDOTDIR}/.zshrc.local" ]]; then
-  source "${ZDOTDIR}/.zshrc.local"
+if [[ -f "$HOME/.zshrc.local" ]]; then
+  source "$HOME/.zshrc.local"
 fi
