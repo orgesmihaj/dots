@@ -12,3 +12,5 @@
 # ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
 export LANG="en_US.UTF-8"
+
+export SHELL_SESSION_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/sessions"
