@@ -1,0 +1,200 @@
+// ─── vscode keybindings  ──────────────────────────────────────────╯
+
+[
+    {
+        "key": "cmd+k 1",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "cmd+k 2",
+        "command": "workbench.action.chat.toggle"
+    },
+
+    // ─── views (v) ─────────────────────────────────────────────────
+    
+    {
+        "key": "cmd+k v e",
+        "command": "workbench.view.explorer"
+    },
+    {
+        "key": "cmd+k v s",
+        "command": "workbench.view.search"
+    },
+    {
+        "key": "cmd+k v g",
+        "command": "workbench.view.scm"
+    },
+    {
+        "key": "cmd+k v d",
+        "command": "workbench.view.debug"
+    },
+    {
+        "key": "cmd+k v x",
+        "command": "workbench.view.extensions"
+    },
+
+    // ─── navigation (g) ────────────────────────────────────────────
+
+    {
+        "key": "cmd+k g f",
+        "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "cmd+k g d",
+        "command": "editor.action.revealDefinition"
+    },
+
+    // ─── navigation: back / forward ─────────────────────────────
+
+    {
+        "key": "cmd+[",
+        "command": "workbench.action.navigateBack"
+    },
+    {
+        "key": "cmd+]",
+        "command": "workbench.action.navigateForward"
+    },
+
+    // ─── file (f) ──────────────────────────────────────────────────
+
+    {
+        "key": "cmd+k f s",
+        "command": "workbench.action.files.save"
+    },
+    {
+        "key": "cmd+k f a",
+        "command": "workbench.action.files.saveAll"
+    },
+    {
+        "key": "cmd+k f c",
+        "command": "workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "cmd+k f o",
+        "command": "workbench.action.closeOtherEditors"
+    },
+
+    // ─── in-file search (/) ────────────────────────────────────────
+
+    {
+        "key": "cmd+k /",
+        "command": "actions.find"
+    },
+    {
+        "key": "cmd+k / r",
+        "command": "editor.action.startFindReplaceAction"
+    },
+
+    // ─── refactor (r) ──────────────────────────────────────────────
+
+    {
+        "key": "cmd+k r n",
+        "command": "editor.action.rename",
+        "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+k r m",
+        "command": "editor.action.refactor",
+        "args": {
+            "kind": "refactor.extract.function"
+        }
+    },
+    {
+        "key": "cmd+k r v",
+        "command": "editor.action.refactor",
+        "args": {
+            "kind": "refactor.extract.constant"
+        }
+    },
+
+    // ─── debug control (d) ──────────────────────────────────────
+
+    {
+        "key": "cmd+k d c",
+        "command": "workbench.action.debug.continue"
+    },
+    {
+        "key": "cmd+k d n",
+        "command": "workbench.action.debug.stepOver"
+    },
+    {
+        "key": "cmd+k d i",
+        "command": "workbench.action.debug.stepInto"
+    },
+    {
+        "key": "cmd+k d o",
+        "command": "workbench.action.debug.stepOut"
+    },
+
+    // ─── code intelligence (c) ──────────────────────────────────
+
+    {
+        "key": "cmd+k c i",
+        "command": "editor.action.goToImplementation"
+    },
+
+    // ─── folding (z) ────────────────────────────────────────────
+
+    {
+        "key": "cmd+k z c",
+        "command": "editor.fold"
+    },
+    {
+        "key": "cmd+k z o",
+        "command": "editor.unfold"
+    },
+    {
+        "key": "cmd+k z a",
+        "command": "editor.toggleFold"
+    },
+    {
+        "key": "cmd+k z m",
+        "command": "editor.foldAll"
+    },
+    {
+        "key": "cmd+k z r",
+        "command": "editor.unfoldAll"
+    },
+    {
+        "key": "cmd+k z 1",
+        "command": "editor.foldLevel1"
+    },
+    {
+        "key": "cmd+k z 2",
+        "command": "editor.foldLevel2"
+    },
+
+    // ─── window (w) ────────────────────────────────────────────────
+    
+    {
+        "key": "cmd+k w s l",
+        "command": "workbench.action.splitEditorRight"
+    },
+    {
+        "key": "cmd+k w s j",
+        "command": "workbench.action.splitEditorDown"
+    },
+    {
+        "key": "cmd+k w h",
+        "command": "workbench.action.focusLeftGroup"
+    },
+    {
+        "key": "cmd+k w l",
+        "command": "workbench.action.focusRightGroup"
+    },
+    {
+        "key": "cmd+k w j",
+        "command": "workbench.action.focusBelowGroup"
+    },
+    {
+        "key": "cmd+k w k",
+        "command": "workbench.action.focusAboveGroup"
+    },
+
+    // ─── other --───────────────────────────────────────────────────
+
+    {
+        "key": "cmd+k escape",
+        "command": "workbench.action.closeQuickOpen"
+    }
+]
