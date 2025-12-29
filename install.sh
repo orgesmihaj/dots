@@ -18,6 +18,7 @@ PACKAGES=(
 	"ohmyposh"
 	"vscode"
 	"zsh"
+	"nvim"
 )
 
 DEPS=(
