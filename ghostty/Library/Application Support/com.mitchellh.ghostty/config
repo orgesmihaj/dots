@@ -15,6 +15,7 @@ font-family-bold-italic = "JetBrainsMono Nerd Font"
 
 window-title-font-family = "MonoLisa Variable"
 
+cursor-style = underline
 cursor-style-blink = false
 
 macos-icon = custom
