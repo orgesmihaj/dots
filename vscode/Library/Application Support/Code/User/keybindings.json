@@ -84,6 +84,11 @@
 		"key": "cmd+k / r",
 		"command": "editor.action.startFindReplaceAction"
 	},
+	{
+		"key": "cmd+k / a",
+		"command": "editor.action.selectHighlights",
+		"when": "editorTextFocus"
+	},
 
 	// ─── refactor (r) ──────────────────────────────────────────────
 
