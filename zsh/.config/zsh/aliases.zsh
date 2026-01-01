@@ -17,15 +17,15 @@ alias la='ls -A --color=auto'
 # ─── files / content ──────────────────────────────────────────────
 
 alias rm='rm -i'
+alias rmf='rm -rf'
 alias mv='mv -i'
 alias cp='cp -i'
 
-if command -v bat >/dev/null; then
-  alias cat='bat --style=plain'
-fi
-
 alias duh='du -h -d 1'
 alias dusort='du -sh * | sort -hr'
+
+alias README='bat README.md'
+alias vskeybindings='bat ~/Library/Application\ Support/Code/User/keybindings.json'
 
 extract() {
   case "$1" in
@@ -75,4 +75,4 @@ alias pingg='ping google.com'
 alias reload='source ~/.zshrc'
 alias path='echo -e ${PATH//:/\\n}'
 alias c='printf "\033c"'
-alias aliases='cat ~/.config/zsh/aliases.zsh'
+alias aliases='bat ~/.config/zsh/aliases.zsh'
