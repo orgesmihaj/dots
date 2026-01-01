@@ -200,7 +200,7 @@ stow_dotfiles() {
 			fi
 
 			if [[ "$line" == "LINK:"* ]]; then
-				print_success "Linked: $(awk '{print $2}' <<< "$line")"
+				print_success "Linked: $(awk '{$1=""; print substr($0,2)}' <<< "$line")"
 				continue
 			fi
 		done; then
