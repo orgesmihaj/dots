@@ -13,6 +13,7 @@ RESTOW=false
 
 PACKAGES=(
 	"bat"
+	"cursor"
 	"git"
 	"ghostty"
 	"ohmyposh"

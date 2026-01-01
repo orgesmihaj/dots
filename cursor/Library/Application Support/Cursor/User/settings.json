@@ -1,0 +1,54 @@
+// ─── cursor settings  ─────────────────────────────────────────────╯
+
+{
+	// ─── editor: typography & rendering ──────────────────────────────
+
+	"editor.fontFamily": "JetBrains Mono, Menlo, monospace",
+	"editor.fontLigatures": false,
+	"editor.fontSize": 13,
+	"editor.lineHeight": 1.6,
+
+	// ─── editor: indentation ──────────────────────────────────────────
+
+	"editor.detectIndentation": false,
+	"editor.insertSpaces": false,
+	"editor.tabSize": 2,
+
+	// ─── editor: visual aids ──────────────────────────────────────────
+
+	"editor.minimap.enabled": false,
+	"editor.renderLineHighlight": "line",
+	"editor.renderWhitespace": "selection",
+
+	"editor.scrollbar.horizontal": "hidden",
+	"editor.scrollbar.vertical": "hidden",
+
+	// ─── files ────────────────────────────────────────────────────────
+
+	"files.autoSave": "afterDelay",
+
+	// ─── workbench: chrome & navigation ───────────────────────────────
+
+	"breadcrumbs.enabled": false,
+
+	"workbench.activityBar.location": "hidden",
+	"workbench.editor.enablePreview": false,
+	"workbench.editor.showTabs": "none",
+	"workbench.iconTheme": "vs-seti",
+
+	"window.customTitleBarVisibility": "windowed",
+
+	// ─── theme ────────────────────────────────────────────────────────
+
+	"window.autoDetectColorScheme": true,
+	"workbench.preferredDarkColorTheme": "GitHub Dark Default",
+	"workbench.preferredHighContrastColorTheme": "GitHub Dark Default",
+	"workbench.preferredLightColorTheme": "GitHub Light Default",
+
+	// ─── language overrides ────────────────────────────────────────────
+
+	"[shellscript]": {
+		"editor.tabSize": 2,
+		"editor.insertSpaces": true
+	},
+}
