@@ -254,10 +254,12 @@ install_dependencies() {
 			print_info "Would install: $cask"
 		else
 			if brew list --cask "$cask" &>/dev/null; then
-				print_success "$cask already instakelled"
+				print_success "$cask already installed"
 			else
 				print_info "Installing $cask..."
-				brew install --cask "$cask"
+				if brew install --cask "$cask" 2>&1 | grep -q "It seems there is already an App"; then
+					print_warning "$cask appears to be manually installed - skipping Homebrew installation"
+				fi
 			fi
 		fi
 	done
@@ -277,6 +279,39 @@ post_install() {
 			print_success "Created .zshrc.local"
 		else
 			print_info "Would create .zshrc.local"
+		fi
+	fi
+
+	# Install VS Code extensions if VS Code is installed
+	if command -v code >/dev/null 2>&1; then
+		local vscode_extensions_file="$DOTFILES_DIR/vscode/Library/Application Support/Code/User/extensions.txt"
+		
+		if [[ -f "$vscode_extensions_file" ]]; then
+			print_info "VS Code found - installing extensions..."
+			
+			if [[ "$DRY_RUN" == true ]]; then
+				print_info "Would install VS Code extensions from: $vscode_extensions_file"
+				
+        while IFS= read -r extension || [[ -n "$extension" ]]; do
+					[[ -z "$extension" ]] && continue
+					print_info "  Would install: $extension"
+				done < "$vscode_extensions_file"
+			else
+				while IFS= read -r extension || [[ -n "$extension" ]]; do
+					[[ -z "$extension" ]] && continue
+					
+					if code --list-extensions | grep -q "^${extension}$"; then
+						print_success "$extension already installed"
+					else
+						print_info "Installing $extension..."
+						if code --install-extension "$extension" --force >/dev/null 2>&1; then
+							print_success "Installed $extension"
+						else
+							print_warning "Failed to install $extension"
+						fi
+					fi
+				done < "$vscode_extensions_file"
+			fi
 		fi
 	fi
 
