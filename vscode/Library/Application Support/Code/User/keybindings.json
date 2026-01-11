@@ -141,23 +141,23 @@
 	// ─── folding (z) ────────────────────────────────────────────
 
 	{
-		"key": "cmd+k z c",
+		"key": "cmd+k z f",
 		"command": "editor.fold"
 	},
 	{
-		"key": "cmd+k z o",
+		"key": "cmd+k z u",
 		"command": "editor.unfold"
 	},
 	{
-		"key": "cmd+k z a",
+		"key": "cmd+k z t",
 		"command": "editor.toggleFold"
 	},
 	{
-		"key": "cmd+k z m",
+		"key": "cmd+k z a",
 		"command": "editor.foldAll"
 	},
 	{
-		"key": "cmd+k z r",
+		"key": "cmd+k z n",
 		"command": "editor.unfoldAll"
 	},
 	{
