@@ -37,6 +37,9 @@
 	"workbench.iconTheme": "vs-seti",
 
 	"window.customTitleBarVisibility": "windowed",
+	
+	"window.restoreWindows": "none",
+	"workbench.startupEditor": "none",
 
 	// ─── theme ────────────────────────────────────────────────────────
 
