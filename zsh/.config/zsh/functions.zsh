@@ -6,6 +6,20 @@ mkcd() {
   mkdir -p "$1" && cd "$1" 
 }
 
+# ─── keybindings ──────────────────────────────────────────────────
+
+keymap() {
+  case "$1" in
+    vscode)  bat "$HOME/Library/Application Support/Code/User/keybindings.json" ;;
+    cursor)  bat "$HOME/Library/Application Support/Cursor/User/keybindings.json" ;;
+    zsh)     bat "${ZDOTDIR:-$HOME/.config/zsh}/keybindings.zsh" ;;
+    *)
+      echo "Usage: keymap <app>"
+      echo "Available: vscode, cursor, zsh"
+      ;;
+  esac
+}
+
 # ─── files / content ──────────────────────────────────────────────
 
 extract() {
