@@ -21,3 +21,14 @@ fi
 if command -v zoxide >/dev/null 2>&1; then
   eval "$(zoxide init --cmd cd zsh)"
 fi
+
+# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+# ┃ mise integration                                                ┃
+# ┃                                                                 ┃
+# ┃ Polyglot runtime version manager.                               ┃
+# ┃ https://mise.jdx.dev                                            ┃
+# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate zsh)"
+fi

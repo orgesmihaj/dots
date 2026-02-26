@@ -25,7 +25,8 @@ PACKAGES=(
 DEPS=(
 	"bat"
 	"fzf"
-	"zoxide" 
+	"mise"
+	"zoxide"
 	"neovim"
 	"git"
 	"jandedobbeleer/oh-my-posh/oh-my-posh"
