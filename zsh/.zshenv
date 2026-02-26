@@ -13,4 +13,6 @@
 
 export LANG="en_US.UTF-8"
 
+export PNPM_HOME="$HOME/Library/pnpm"
+
 export SHELL_SESSION_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/sessions"

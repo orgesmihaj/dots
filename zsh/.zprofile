@@ -18,4 +18,4 @@ if [ -x /opt/homebrew/bin/brew ] && ! command -v brew >/dev/null; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-export PATH="$HOME/.bun/bin:$HOME/.local/bin:$HOME/bin:$PATH"
+export PATH="$PNPM_HOME:$HOME/.bun/bin:$HOME/.local/bin:$HOME/bin:$PATH"
