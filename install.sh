@@ -48,7 +48,7 @@ STOW_IGNORE_PATTERNS=(
 # ─── help ──────────────────────────────────────────────────────────────
 
 readonly HELP_TEXT=("
-Dotfiles Installation Script (using GNU Stow)
+Dots installation script (using GNU Stow)
 
 Usage:
 ./install.sh [options]
@@ -62,7 +62,7 @@ Options:
 This script will:
 1. Check system compatibility (macOS)
 2. Install GNU Stow if needed
-3. Use Stow to create symlinks for all dotfiles
+3. Use Stow to create symlinks for all dots
 4. Optionally install dependencies (Homebrew packages)
 
 What is GNU Stow?
@@ -214,7 +214,7 @@ stow_dotfiles() {
 		fi
 	done
 
-	print_success "Dotfiles stowing complete"
+	print_success "Dots stowing complete"
 }
 
 install_dependencies() {
