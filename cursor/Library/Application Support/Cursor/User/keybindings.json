@@ -7,7 +7,7 @@
 	},
 	{
 		"key": "cmd+k 2",
-		"command": "workbench.action.chat.toggle"
+		"command": "workbench.action.toggleAgents"
 	},
 
 	// ─── views (v) ─────────────────────────────────────────────────
