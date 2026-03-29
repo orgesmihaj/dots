@@ -348,7 +348,6 @@ apply_privacy() {
 		return
 	fi
 
-	print_header "Privacy Hardening"
 	bash "${DOTFILES_DIR}/privacy/.config/privacy/macos.sh"
 }
 
