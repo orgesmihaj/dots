@@ -4,7 +4,7 @@
 # ┃  Zinit: Zsh plugin manager                                      ┃ 
 # ┃                                                                 ┃
 # ┃  Flexible and fast Zsh plugin manager that lets you install     ┃
-# ┃  pluginsdirectly from GitHub and many other sources.            ┃
+# ┃  plugins directly from GitHub and many other sources.           ┃
 # ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
