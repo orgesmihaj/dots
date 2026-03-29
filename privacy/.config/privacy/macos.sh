@@ -70,7 +70,6 @@ main() {
 
   # ─── remote services ────────────────────────────────────────────
 
-  # run sudo systemsetup -setremotelogin off
   run sudo launchctl disable system/com.apple.remote_management
 
   # ─── auto time zone ─────────────────────────────────────────────
