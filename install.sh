@@ -10,6 +10,7 @@ DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DRY_RUN=false
 SKIP_DEPS=false
 RESTOW=false
+PRIVACY=false
 
 PACKAGES=(
 	"bat"
@@ -57,6 +58,7 @@ Options:
 --skip-deps     Skip dependency installation
 --restow        Restow all packages (re-creates symlinks, useful for updates)
 --dry-run       Show what would be done without making changes
+--privacy       Apply macOS privacy hardening
 -h, --help      Show this help message
 
 This script will:
@@ -77,11 +79,11 @@ show_help() {
 
 # ─── output helpers ────────────────────────────────────────────────────
 
-readonly NO_COLOR='\033[0m'
-readonly GREEN='\033[0;32m'
-readonly RED='\033[0;31m'
-readonly BLUE='\033[0;34m'
-readonly YELLOW='\033[1;33m'
+readonly NO_COLOR=$'\033[0m'
+readonly GREEN=$'\033[0;32m'
+readonly RED=$'\033[0;31m'
+readonly BLUE=$'\033[0;34m'
+readonly YELLOW=$'\033[1;33m'
 
 print_success() {
 	echo "${GREEN}✓${NO_COLOR} $1"
@@ -341,6 +343,15 @@ install_editor_extensions() {
 	fi
 }
 
+apply_privacy() {
+	if [[ "$PRIVACY" != true ]]; then
+		return
+	fi
+
+	print_header "Privacy Hardening"
+	bash "${DOTFILES_DIR}/privacy/.config/privacy/macos.sh"
+}
+
 readonly ZSHRC_LOCAL_CONTENT=(
 	"# ─── .zshrc.local  ────────────────────────────────────────────────────╯"
 	"#"
@@ -379,6 +390,10 @@ while [[ $# -gt 0 ]]; do
 			DRY_RUN=true
 			shift
 			;;
+		--privacy)
+			PRIVACY=true
+			shift
+			;;
 		-h|--help)
 			show_help
 			exit 0
@@ -396,6 +411,7 @@ main() {
 	install_stow
 	stow_dotfiles
 	install_dependencies
+	apply_privacy
 	post_install
 }
 
