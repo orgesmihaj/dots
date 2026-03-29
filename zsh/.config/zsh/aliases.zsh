@@ -6,13 +6,19 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias -- -='cd -'
-alias mkcd='mkdir -p "$1" && cd "$1"'
+mkcd() { mkdir -p "$1" && cd "$1" }
 
 # ─── file ops ─────────────────────────────────────────────────────
 
-alias ls='ls --color=auto'
-alias ll='ls -alh --color=auto'
-alias la='ls -A --color=auto'
+if ls --color=auto /dev/null &>/dev/null; then
+  alias ls='ls --color=auto'
+  alias ll='ls -alh --color=auto'
+  alias la='ls -A --color=auto'
+else
+  alias ls='ls -G'
+  alias ll='ls -alhG'
+  alias la='ls -AG'
+fi
 
 # ─── files / content ──────────────────────────────────────────────
 
@@ -66,9 +72,10 @@ alias please='sudo $(fc -ln -1)'
 
 # ─── networking / debug ───────────────────────────────────────────
 
-alias myip='curl ifconfig.me'
+alias myip='ipconfig getifaddr en0 2>/dev/null || ipconfig getifaddr en1'
+alias myip-public='curl -s https://icanhazip.com'
 alias ports='lsof -i -P -n'
-alias pingg='ping google.com'
+alias pingg='ping 1.1.1.1'
 
 # ─── zsh-specific ─────────────────────────────────────────────────
 
