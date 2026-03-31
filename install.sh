@@ -349,6 +349,7 @@ apply_privacy() {
 	fi
 
 	bash "${DOTFILES_DIR}/privacy/.config/privacy/macos.sh"
+	bash "${DOTFILES_DIR}/privacy/.config/privacy/network.sh"
 }
 
 readonly ZSHRC_LOCAL_CONTENT=(
