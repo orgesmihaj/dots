@@ -29,4 +29,4 @@ zinit ice wait'0' lucid depth'1' pick'deja.plugin.zsh'
 zinit light Giammarco-Ferranti/deja
 
 zinit wait'0' lucid light-mode for \
-  zsh-users/zsh-syntax-highlighting
+  zdharma-continuum/fast-syntax-highlighting
