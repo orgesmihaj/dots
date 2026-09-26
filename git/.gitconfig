@@ -17,7 +17,7 @@
 [core] 
   editor = nvim
   autocrlf = input
-  excludesfile = ~/.gitignore  
+  excludesfile = ~/.config/git/ignore
   filemode = true
   pager = less -FXR
   whitespace = space-before-tab,-indent-with-non-tab,trailing-space
