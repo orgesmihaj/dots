@@ -46,6 +46,6 @@ console_title_template = "{{.Folder}}"
     template = "·"
 
 [palette]
-  closer = "p:os"
+  closer = "#C6D0F5"
   lavender = "#BABBF1"
   blue = "#8CAAEE"

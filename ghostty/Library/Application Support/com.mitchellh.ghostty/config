@@ -49,9 +49,6 @@ shell-integration-features = no-cursor,sudo,no-title
 
 # ─── keybindings ───────────────────────────────────────────────────
 
-keybind = super+c=copy_to_clipboard
-keybind = super+v=paste_from_clipboard
-
 keybind = super+k>w>s>l=new_split:right
 keybind = super+k>w>s>j=new_split:down
 
