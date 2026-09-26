@@ -1,0 +1,9 @@
+.DS_Store
+.zsh_history
+cache/
+nvim.log
+*.swp
+*.swo
+*~
+.claude/settings.local.json
+.zshrc.local
