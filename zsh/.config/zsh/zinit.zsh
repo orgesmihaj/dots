@@ -22,8 +22,11 @@ zinit light zsh-users/zsh-completions
 
 # Widgets load after completion initialization and shell integrations.
 zinit wait lucid light-mode for \
-  zsh-users/zsh-autosuggestions \
   Aloxaf/fzf-tab
+
+# Deja provides history suggestions; Homebrew installs its binary.
+zinit ice wait'0' lucid depth'1' pick'deja.plugin.zsh'
+zinit light Giammarco-Ferranti/deja
 
 zinit wait'0' lucid light-mode for \
   zsh-users/zsh-syntax-highlighting
