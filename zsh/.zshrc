@@ -1,6 +1,6 @@
 # ─── .zshrc  ──────────────────────────────────────────────────────╯
 
-export ZDOTDIR="$HOME/.config/zsh"
+ZDOTDIR="$HOME/.config/zsh"
 
 source "$ZDOTDIR/core.zsh"
 source "$ZDOTDIR/zinit.zsh"

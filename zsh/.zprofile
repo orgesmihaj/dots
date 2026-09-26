@@ -14,8 +14,17 @@
 # ┃ Those belong in `.zshrc`.                                       ┃
 # ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
-if [ -x /opt/homebrew/bin/brew ] && ! command -v brew >/dev/null; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ -z "$HOMEBREW_PREFIX" ]]; then
+  if [[ -x /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  elif [[ -x /usr/local/bin/brew ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
 fi
 
-export PATH="$PNPM_HOME:$HOME/.bun/bin:$HOME/.local/bin:$HOME/bin:$PATH"
+typeset -U path
+path=("$PNPM_HOME" "$HOME/.bun/bin" "$HOME/.local/bin" "$HOME/bin" $path)
+if [[ -n "$HOMEBREW_PREFIX" && -d "$HOMEBREW_PREFIX/opt/postgresql@18/bin" ]]; then
+  path=("$HOMEBREW_PREFIX/opt/postgresql@18/bin" $path)
+fi
+export PATH

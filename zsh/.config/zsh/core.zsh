@@ -8,7 +8,6 @@
 # ┃ sourced early in .zshrc, before plugins or prompt setup.        ┃
 # ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
-mkdir -p "$ZDOTDIR/cache"
 mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 
 # ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
@@ -20,17 +19,4 @@ mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 
 export ZSH_COMPDUMP="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/.zcompdump-$HOST"
 
-# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-# ┃ WARNING                                                         ┃
-# ┃                                                                 ┃
-# ┃ `compinit` must run after `ZSH_COMPDUMP` is defined but before  ┃
-# ┃ any plugin that relies on completion. Running it earlier or     ┃
-# ┃ multiple times leads to inconsistent completion behavior.       ┃
-# ┃                                                                 ┃
-# ┃ Note: `compinit -C` skips security checks and speeds up startup.┃
-# ┃ If you sync dotfiles across machines or use untrusted plugins,  ┃
-# ┃ switch to plain `compinit` instead.                             ┃
-# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-
-autoload -Uz compinit
-compinit -C -d "$ZSH_COMPDUMP"
+# completion.zsh initializes completions after Zinit adds definitions.

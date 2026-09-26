@@ -1,5 +1,9 @@
 # ─── completion.zsh  ──────────────────────────────────────────────╯
 
+# Zinit loads completion definitions before this module runs.
+autoload -Uz compinit
+compinit -d "$ZSH_COMPDUMP"
+
 # ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 # ┃  CACHE LOCATION                                                 ┃
 # ┃                                                                 ┃

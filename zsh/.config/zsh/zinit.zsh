@@ -1,34 +1,29 @@
 # ─── zinit.zsh  ───────────────────────────────────────────────────╯
 
-# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-# ┃  Zinit: Zsh plugin manager                                      ┃ 
-# ┃                                                                 ┃
-# ┃  Flexible and fast Zsh plugin manager that lets you install     ┃
-# ┃  pluginsdirectly from GitHub and many other sources.            ┃
-# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-
-if [ ! -d "$ZINIT_HOME" ]; then
-  if ! command -v git >/dev/null 2>&1; then
-    echo "zinit: git not found; cannot install Zinit" >&2
-    return
+# Homebrew owns the manager; Zinit keeps plugins in its user data directory.
+local zinit_prefix="${HOMEBREW_PREFIX:-}"
+if [[ -z "$zinit_prefix" ]]; then
+  if [[ -r /opt/homebrew/opt/zinit/zinit.zsh ]]; then
+    zinit_prefix=/opt/homebrew
+  elif [[ -r /usr/local/opt/zinit/zinit.zsh ]]; then
+    zinit_prefix=/usr/local
   fi
-
-  mkdir -p "$ZINIT_HOME"
-  git clone --depth=1 https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
-# 🚀
-source "$ZINIT_HOME/zinit.zsh"
+if [[ -z "$zinit_prefix" || ! -r "$zinit_prefix/opt/zinit/zinit.zsh" ]]; then
+  print -u2 "zinit: not installed; run brew bundle install --file=Brewfile --no-upgrade from the dotfiles repository"
+  return 0
+fi
 
-# ─── plugins ──────────────────────────────────────────────────────
+source "$zinit_prefix/opt/zinit/zinit.zsh"
 
+# Register completion definitions before completion.zsh runs compinit.
+zinit light zsh-users/zsh-completions
+
+# Widgets load after completion initialization and shell integrations.
 zinit wait lucid light-mode for \
   zsh-users/zsh-autosuggestions \
-  zsh-users/zsh-completions \
   Aloxaf/fzf-tab
 
 zinit wait'0' lucid light-mode for \
   zsh-users/zsh-syntax-highlighting
-
