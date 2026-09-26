@@ -3,6 +3,8 @@
 [alias]
   st = status
   co = checkout
+  sw = switch
+  rs = restore
   br = branch
   cm = commit -m
   ca = commit -a
@@ -19,7 +21,7 @@
   autocrlf = input
   excludesfile = ~/.config/git/ignore
   filemode = true
-  pager = less -FXR
+  pager = delta
   whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 
 [init]
@@ -30,15 +32,40 @@
 
 [push]
   default = current
+  autoSetupRemote = true
 
 [pull]
   rebase = true
 
+[fetch]
+  prune = true
+
+[rebase]
+  autoStash = true
+  autoSquash = true
+  updateRefs = true
+
+[rerere]
+  enabled = true
+
+[branch]
+  sort = -committerdate
+
+[commit]
+  verbose = true
+
 [merge]
   tool = nvimdiff
-  conflictstyle = diff3
+  conflictstyle = zdiff3
 
 [diff]
   algorithm = histogram
   tool = nvimdiff
   colorMoved = default
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true
+  syntax-theme = Catppuccin Mocha
