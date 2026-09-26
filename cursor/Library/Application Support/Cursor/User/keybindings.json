@@ -5,10 +5,6 @@
 		"key": "cmd+k 1",
 		"command": "workbench.action.toggleSidebarVisibility"
 	},
-	{
-		"key": "cmd+k 2",
-		"command": "workbench.action.chat.toggle"
-	},
 
 	// ─── views (v) ─────────────────────────────────────────────────
 
@@ -196,10 +192,26 @@
 		"command": "workbench.action.focusAboveGroup"
 	},
 
-	// ─── other --───────────────────────────────────────────────────
+	// ─── cursor: chat / agent (c) ─────────────────────────────────
+
+	{
+		"key": "cmd+' c c",
+		"command": "workbench.action.toggleAuxiliaryBar"
+	},
+	{
+		"key": "cmd+' c n",
+		"command": "composer.createNewWithPrevContext"
+	},
+
+	// ─── other ─────────────────────────────────────────────────────
 
 	{
 		"key": "cmd+k escape",
 		"command": "workbench.action.closeQuickOpen"
+	},
+	{
+		"key": "alt+cmd+s",
+		"command": "workbench.action.toggleUnifiedSidebarFromKeyboard",
+		"when": "!isAuxiliaryWindowFocusedContext"
 	}
 ]
