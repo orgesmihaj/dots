@@ -9,9 +9,16 @@ alias -- -='cd -'
 
 # ─── file ops ─────────────────────────────────────────────────────
 
-alias ls='ls --color=auto'
-alias ll='ls -alh --color=auto'
-alias la='ls -A --color=auto'
+if command -v eza >/dev/null 2>&1; then
+  alias ls='eza'
+  alias ll='eza -alh --git'
+  alias la='eza -a'
+  alias lt='eza --tree --level=2'
+else
+  alias ls='ls --color=auto'
+  alias ll='ls -alh --color=auto'
+  alias la='ls -A --color=auto'
+fi
 
 # ─── files / content ──────────────────────────────────────────────
 
@@ -23,7 +30,7 @@ alias cp='cp -i'
 alias duh='du -h -d 1'
 alias dusort='du -sh * | sort -hr'
 
-alias README='bat README.md'
+alias README='_view README.md'
 
 # ─── git ──────────────────────────────────────────────────────────
 
@@ -41,6 +48,10 @@ alias gds='git diff --staged'
 alias glg='git log --oneline --graph --decorate'
 alias gst='git status -sb'
 
+if command -v lazygit >/dev/null; then
+  alias lg='lazygit'
+fi
+
 # ─── tools ─────────────────────────────────────────────────────────
 
 if command -v nvim >/dev/null; then
@@ -49,7 +60,6 @@ if command -v nvim >/dev/null; then
 fi
 
 alias grep='grep --color=auto'
-alias please='sudo $(fc -ln -1)'
 
 # ─── networking / debug ───────────────────────────────────────────
 

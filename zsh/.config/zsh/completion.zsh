@@ -23,6 +23,11 @@ zstyle ':completion:*' matcher-list \
 
 # ─── colorized completion lists ────────────────────────────────────
 
+# eza and completion lists share the Catppuccin palette from vivid.
+if command -v vivid >/dev/null 2>&1; then
+  export LS_COLORS="$(vivid generate catppuccin-mocha)"
+fi
+
 if [[ -n "$LS_COLORS" ]]; then
   zstyle ':completion:*' list-colors \
     "${(s.:.)LS_COLORS}"
@@ -32,12 +37,13 @@ fi
 
 zstyle ':completion:*' menu no
 
-# ─── fzf-tab: cd preview ───────────────────────────────────────────
+# ─── fzf-tab: cd and zoxide previews ───────────────────────────────
 
-zstyle ':fzf-tab:complete:cd:*' fzf-preview \
-  'ls --color=auto $realpath'
+local dir_preview='ls --color=always $realpath'
+if command -v eza >/dev/null 2>&1; then
+  dir_preview='eza -1 --color=always --icons $realpath'
+fi
 
-# ─── fzf-tab: zoxide preview ────────────────────────────────────────
-
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview \
-  'ls --color=auto $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview "$dir_preview"
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview "$dir_preview"
+unset dir_preview
