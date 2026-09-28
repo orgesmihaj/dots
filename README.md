@@ -1,158 +1,156 @@
 # macOS dotfiles
 
-Application configurations managed with GNU Stow and dependencies declared in
-`Brewfile`. Run the commands below from the root of this clone. Homebrew must
-already be installed; both Apple Silicon and Intel Macs are supported.
+My app configs, linked into place with GNU Stow, with dependencies listed in
+`Brewfile`. You'll need Homebrew first. Apple Silicon and Intel Macs both work.
+Run everything below from the root of this repo.
 
 ## Install
 
-Deja, the shell's history suggestion tool, comes from a third-party tap.
-Homebrew refuses to load formulae from untrusted taps, so review the tap and
-trust only its formula before installing:
+Deja (history suggestions) lives in a third-party tap. Homebrew won't load
+formulae from untrusted taps, so take a look at the tap first, then trust just
+that formula:
 
 ```sh
 brew trust --formula giammarco-ferranti/deja/deja
 ```
 
-Install missing dependencies without upgrading existing packages:
+Then install whatever's missing, without upgrading what you already have:
 
 ```sh
 brew bundle install --file=Brewfile --no-upgrade
 ```
 
-This includes Stow, Zinit, Deja, command-line tools (eza, delta, lazygit, gh,
-jq, yq, tealdeer, btop, yazi, ouch, vivid), development tools, Ghostty, VS Code,
-Cursor, and JetBrainsMono Nerd Font. Download tealdeer's pages once with
-`tldr --update`. If Homebrew reports a conflict with a manually installed app,
-inspect the existing app and back up anything you need before resolving its
-ownership manually and retrying. These instructions do not replace existing apps
-automatically.
+That covers Stow, Zinit, Deja, the CLI tools (eza, delta, lazygit, gh, jq, yq,
+tealdeer, btop, yazi, ouch, vivid), dev tools, Ghostty, VS Code, Cursor, and
+JetBrainsMono Nerd Font. Run `tldr --update` once to fetch tealdeer's pages.
+If Homebrew complains about an app you installed by hand, back up anything you
+need, sort out the conflict yourself, and retry. Nothing gets replaced for you.
 
-Preview the links, then apply them after resolving any conflicts:
+Next, preview the links and apply them once any conflicts are sorted:
 
 ```sh
 stow --simulate bat cursor git ghostty ohmyposh vscode zsh nvim
 stow bat cursor git ghostty ohmyposh vscode zsh nvim
 ```
 
-The root `.stowrc` sets the target to `$HOME`, enables verbose output, disables
-directory folding, and excludes generated files. Stow links individual files so
-application-created files stay outside the repository. Neovim is included by
-default, but its configuration is still in progress.
+The root `.stowrc` targets `$HOME`, turns on verbose output, disables directory
+folding, and skips generated files. Because Stow links individual files, stuff
+apps create on their own stays out of the repo. Neovim is included, though its
+config is still a work in progress.
 
-Stow refuses to overwrite conflicting regular files. Inspect and back up a
-conflicting destination before moving it aside and retrying. `--restow` does not
-resolve regular-file conflicts. Do not use `--adopt` to bypass them.
+Stow won't overwrite existing regular files. If something's in the way, back it
+up, move it aside, and try again. `--restow` won't fix that, and please don't
+reach for `--adopt` to get around it.
 
-Install each editor's extensions explicitly:
+Install editor extensions separately for each editor:
 
 ```sh
 xargs -n 1 code --install-extension < "vscode/Library/Application Support/Code/User/extensions.txt"
 xargs -n 1 cursor --install-extension < "cursor/Library/Application Support/Cursor/User/extensions.txt"
 ```
 
-The Homebrew casks provide these CLI commands. If a command is missing, check
-Homebrew's bin directory is on `PATH` before retrying. Each command prints its
-own results and returns a failure status when an installation fails. Run both:
-Homebrew Bundle's `vscode` entries select one available editor, not both editors.
-The extension lists contain one extension ID per line, without comments.
+The `code` and `cursor` commands come with the Homebrew casks. If one is
+missing, make sure Homebrew's bin directory is on your `PATH`. Run both lines,
+since Homebrew Bundle's `vscode` entries only target one editor. Each list is
+just one extension ID per line.
 
-Start a new login shell with `exec zsh -l`. Homebrew installs Zinit itself;
-Zinit downloads missing plugins on first use, which requires network access.
-Existing Zinit plugin data is reused. An old manually cloned manager is left in
-place but is no longer sourced. Missing Zinit produces a warning; standard shell
-completion and other configuration still load.
+Finally, start a fresh login shell with `exec zsh -l`. Zinit comes from
+Homebrew and pulls in missing plugins on first run, so you'll need a network
+connection. Existing plugin data gets reused, and an old hand-cloned Zinit is
+left alone but no longer sourced. If Zinit is missing you'll see a warning, but
+completion and the rest of the config still load.
 
-Zinit loads Deja's Zsh plugin, but suggestions need the `deja` binary from the
-Brewfile; without it, the plugin prints a warning at startup. Do not add the
-activation line from Deja's own Homebrew instructions to `~/.zshrc`, because
-Zinit already loads the plugin. Import existing shell history once:
+### Deja
+
+Zinit loads Deja's Zsh plugin, but it needs the `deja` binary from the Brewfile
+(you'll get a startup warning without it). Skip the activation line from Deja's
+Homebrew instructions, since Zinit already handles that. Import your existing
+history once:
 
 ```sh
 deja import
 ```
 
-Deja replaces `zsh-autosuggestions`. Its `DEJA_*` settings must be exported
-before Zinit loads the plugin, so `~/.zshrc.local`, which is sourced last, is
-too late for them.
+Deja replaces `zsh-autosuggestions`. Any `DEJA_*` settings have to be exported
+before Zinit loads the plugin, so `~/.zshrc.local` is too late for them.
 
 ## Local preferences
 
-`~/.zshrc.local` is optional and is sourced last. Create it yourself if needed,
-keep secrets out of this repository, and use `chmod 600 ~/.zshrc.local` for a
-private regular file you own. Installation does not create, overwrite, or change
-permissions on this file.
+`~/.zshrc.local` is optional and sourced last. Create it yourself if you want
+one, keep secrets there rather than in this repo, and lock it down with
+`chmod 600 ~/.zshrc.local`. Nothing here creates or touches it.
 
-Ghostty requests **MonoLisa Variable** for window titles. It is an optional,
-manually installed font; change that setting if you prefer another title font.
-JetBrainsMono Nerd Font is installed by the Brewfile for terminal text.
+Ghostty uses **MonoLisa Variable** for window titles. It's optional and not in
+the Brewfile, so change that setting if you'd rather use something else.
+Terminal text uses JetBrainsMono Nerd Font, which the Brewfile does install.
 
-PostgreSQL 18 is optional: its Homebrew bin directory is added to login-shell
-`PATH` only when present. Other machine-specific paths belong in local overrides.
-mise provides Node: set a global version with `mise use -g node@24` and use
-project-level mise configuration when a project needs another version. Laravel
-Herd provides PHP. Its `PATH` and INI variables belong in `~/.zshrc.local`.
-Herd appends them to `~/.zshrc`, and so to the tracked `zsh/.zshrc`, during
-setup and when it installs a PHP version. Move any new `HERD_PHP_*` line to
-`~/.zshrc.local` with `$HOME` in place of the home path, then delete Herd's
-lines from `zsh/.zshrc`. Earlier versions of the Brewfile installed `node` and
-`php`; Homebrew Bundle does not remove them, so run `brew uninstall node php`
-yourself if nothing else needs them.
+PostgreSQL 18 is optional; its bin directory is added to `PATH` only if it
+exists. Put other machine-specific paths in your local overrides.
 
-Git's global ignores live in `git/.config/git/ignore`. Project cache exclusions
-belong in each project's `.gitignore`. An existing `~/.gitignore` is left intact;
-copy any personal patterns you still need into the new global ignore file.
-An existing `~/.config/git/ignore` conflicts with the Stow link: merge its
-patterns into the repository file and move it aside before stowing `git`.
+Node comes from mise: set a global version with `mise use -g node@24`, and use a
+project-level mise config when something needs a different one. PHP comes from
+Laravel Herd, whose `PATH` and INI variables belong in `~/.zshrc.local`. Heads
+up: Herd appends them to `~/.zshrc` (so the tracked `zsh/.zshrc`) during setup
+and whenever it installs a PHP version. When that happens, move any new
+`HERD_PHP_*` line into `~/.zshrc.local`, swap the home path for `$HOME`, and
+delete Herd's lines from `zsh/.zshrc`. Older Brewfiles installed `node` and
+`php`; Bundle won't remove them, so `brew uninstall node php` if you don't need
+them anymore.
 
-Git uses delta as its pager and `zdiff3` conflict markers, and enables `rerere`,
-pruning on fetch, and auto-stash, auto-squash, and ref updates on rebase.
+Global Git ignores live in `git/.config/git/ignore`; project-specific ones go
+in each project's `.gitignore`. An old `~/.gitignore` is left as is, so copy
+over any patterns you still want. If you already have `~/.config/git/ignore`,
+merge its patterns into the repo's file and move it aside before stowing `git`.
 
-## Update and remove links
+Git uses delta as its pager and `zdiff3` conflict markers, and turns on
+`rerere`, pruning on fetch, and auto-stash, auto-squash, and ref updates when
+rebasing.
 
-Check dependencies without installing them:
+## Updating and removing
+
+Check dependencies without installing anything:
 
 ```sh
 brew bundle check --file=Brewfile --verbose
 ```
 
-After pulling changes, repeat the install and extension commands as needed and
-preview a restow before applying it:
+After pulling changes, rerun the install and extension commands as needed, then
+preview and apply a restow:
 
 ```sh
 stow --simulate --restow bat cursor git ghostty ohmyposh vscode zsh nvim
 stow --restow bat cursor git ghostty ohmyposh vscode zsh nvim
 ```
 
-Use `brew bundle install --file=Brewfile` when you explicitly want Homebrew to
-upgrade dependencies. Homebrew is a rolling package manager; `--no-upgrade` does
-not pin versions. No cleanup or package removal is part of installation.
+Want Homebrew to upgrade things too? Drop `--no-upgrade`. Keep in mind Homebrew
+is rolling, so `--no-upgrade` doesn't pin versions. Installation never cleans up
+or removes packages.
 
-Remove a package's links, leaving its source files and installed app intact:
+To remove a package's links (source files and installed apps stay put):
 
 ```sh
 stow --simulate --delete zsh
 stow --delete zsh
 ```
 
-The former `install.sh` has been removed. Its dependency installation, dry run,
-restow, and extension steps are now the direct commands above. Existing Stow
-links remain valid because the package layout is unchanged.
+The old `install.sh` is gone; its steps are just the commands above now.
+Existing links still work since the package layout hasn't changed.
 
 ## Contributing and validation
 
-Add each application as a lowercase directory mirroring its paths below `$HOME`,
-add its dependencies to the Brewfile, and update the package lists above.
+Add each app as a lowercase directory that mirrors its paths under `$HOME`, add
+its dependencies to the Brewfile, and update the package lists above.
 
-Check the Brewfile and parse every shell file separately:
+To check the Brewfile and parse each shell file:
 
 ```sh
 brew bundle list --file=Brewfile
+
 for file in zsh/.zshenv zsh/.zprofile zsh/.zshrc zsh/.config/zsh/*.zsh; do
   zsh -n "$file" || break
 done
 ```
 
-Use a temporary target with `stow --target=/path/to/temporary-home` to exercise
-link creation without installing into your home. For work outside Neovim, use
-the package list without `nvim` for these checks.
+To test linking without touching your home directory, point Stow at a temporary
+target with `stow --target=/path/to/temporary-home`. If you're not working on
+Neovim, leave `nvim` out of the package list for these checks.
