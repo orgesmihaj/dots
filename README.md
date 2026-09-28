@@ -29,8 +29,8 @@ need, sort out the conflict yourself, and retry. Nothing gets replaced for you.
 Next, preview the links and apply them once any conflicts are sorted:
 
 ```sh
-stow --simulate bat cursor git ghostty ohmyposh vscode zsh nvim
-stow bat cursor git ghostty ohmyposh vscode zsh nvim
+stow --simulate bat cursor git ghostty ohmyposh vscode zsh nvim wallpaper
+stow bat cursor git ghostty ohmyposh vscode zsh nvim wallpaper
 ```
 
 The root `.stowrc` targets `$HOME`, turns on verbose output, disables directory
@@ -41,6 +41,17 @@ config is still a work in progress.
 Stow won't overwrite existing regular files. If something's in the way, back it
 up, move it aside, and try again. `--restow` won't fix that, and please don't
 reach for `--adopt` to get around it.
+
+The `wallpaper` package includes a desktop background inspired by Theth and
+the Albanian Alps. Stow links the HEIC file into `~/.local/share/wallpapers/`;
+set it as your wallpaper after stowing:
+
+```sh
+zsh scripts/apply-wallpaper.zsh
+```
+
+For all displays and Spaces, enable **System Settings → Wallpaper → Show on all
+Spaces**.
 
 Install editor extensions separately for each editor:
 
@@ -118,8 +129,9 @@ After pulling changes, rerun the install and extension commands as needed, then
 preview and apply a restow:
 
 ```sh
-stow --simulate --restow bat cursor git ghostty ohmyposh vscode zsh nvim
-stow --restow bat cursor git ghostty ohmyposh vscode zsh nvim
+stow --simulate --restow bat cursor git ghostty ohmyposh vscode zsh nvim wallpaper
+stow --restow bat cursor git ghostty ohmyposh vscode zsh nvim wallpaper
+zsh scripts/apply-wallpaper.zsh
 ```
 
 Want Homebrew to upgrade things too? Drop `--no-upgrade`. Keep in mind Homebrew
