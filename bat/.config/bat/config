@@ -1,4 +1,6 @@
 # ─── bat  ─────────────────────────────────────────────────────────╯
 
 --paging=auto
---theme="Catppuccin Mocha"
+--theme=auto:system
+--theme-light="ansi"
+--theme-dark="Catppuccin Mocha"
