@@ -69,6 +69,6 @@ alias pingg='ping google.com'
 
 # ─── zsh-specific ─────────────────────────────────────────────────
 
-alias reload='source ~/.zshrc'
+alias reload='exec zsh'
 alias path='echo -e ${PATH//:/\\n}'
 alias c='printf "\033c"'

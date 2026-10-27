@@ -25,6 +25,9 @@ zinit wait lucid light-mode for \
   Aloxaf/fzf-tab
 
 # Deja provides history suggestions; Homebrew installs its binary.
+# Deja rebinds its cycle key every prompt; keep Tab for fzf-tab.
+DEJA_CYCLE_KEY='^[[Z'
+
 zinit ice wait'0' lucid depth'1' pick'deja.plugin.zsh'
 zinit light Giammarco-Ferranti/deja
 

@@ -23,7 +23,7 @@ if [[ -z "$HOMEBREW_PREFIX" ]]; then
 fi
 
 typeset -U path
-path=("$PNPM_HOME" "$HOME/.bun/bin" "$HOME/.local/bin" "$HOME/bin" $path)
+path=("$PNPM_HOME" "$HOME/.bun/bin" "$HOME/.composer/vendor/bin" "$HOME/.local/bin" "$HOME/bin" $path)
 if [[ -n "$HOMEBREW_PREFIX" && -d "$HOMEBREW_PREFIX/opt/postgresql@18/bin" ]]; then
   path=("$HOMEBREW_PREFIX/opt/postgresql@18/bin" $path)
 fi
