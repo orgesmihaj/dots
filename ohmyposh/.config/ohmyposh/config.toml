@@ -45,7 +45,21 @@ console_title_template = "{{.Folder}}"
     foreground = "p:closer"
     template = "·"
 
+# APPEARANCE (light or dark) comes from zsh; [palette] is the fallback.
 [palette]
   closer = "#C6D0F5"
   lavender = "#BABBF1"
   blue = "#8CAAEE"
+
+[palettes]
+  template = "{{ .Env.APPEARANCE }}"
+
+  [palettes.list.light]
+    closer = "#000000"
+    lavender = "#531AB6"
+    blue = "#0031A9"
+
+  [palettes.list.dark]
+    closer = "#C6D0F5"
+    lavender = "#BABBF1"
+    blue = "#8CAAEE"
