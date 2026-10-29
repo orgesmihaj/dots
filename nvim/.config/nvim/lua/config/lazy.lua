@@ -2,7 +2,7 @@
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   if vim.fn.executable("git") ~= 1 then
     error("lazy.nvim bootstrap requires Git in PATH")
   end
@@ -37,4 +37,9 @@ require("lazy").setup({
   },
   checker = { enabled = false },
   pkg = { sources = { "lazy" } },
+  performance = {
+    rtp = {
+      disabled_plugins = { "gzip", "tarPlugin", "tohtml", "tutor", "zipPlugin" },
+    },
+  },
 })

@@ -1,24 +1,28 @@
 -- treesitter.lua  ───────────────────────────────────────────────────╯
 
+-- Nvim bundles lua, markdown, and markdown_inline.
 local parsers = {
   "bash",
+  "javascript",
   "json",
-  "jsonc",
-  "lua",
-  "markdown",
-  "markdown_inline",
   "php",
+  "tsx",
+  "typescript",
   "zsh",
 }
 
 local filetypes = {
   "bash",
+  "javascript",
+  "javascriptreact",
   "json",
   "jsonc",
   "lua",
   "markdown",
   "php",
   "sh",
+  "typescript",
+  "typescriptreact",
   "zsh",
 }
 
@@ -46,7 +50,6 @@ return {
         end
         vim.wo.foldmethod = "expr"
         vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-        vim.wo.foldlevel = 99
       end,
     })
   end,

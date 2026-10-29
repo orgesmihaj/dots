@@ -1,3 +1,5 @@
+-- gitsigns.lua  ─────────────────────────────────────────────────────╯
+
 return {
   "lewis6991/gitsigns.nvim",
   version = "v2.1.0",
@@ -26,13 +28,13 @@ return {
         end
       end, "Previous Git hunk")
 
-      map("n", "<leader>gp", gitsigns.preview_hunk, "Preview Git hunk")
-      map("n", "<leader>gs", gitsigns.stage_hunk, "Stage Git hunk")
-      map("n", "<leader>gr", gitsigns.reset_hunk, "Reset Git hunk")
-      map("v", "<leader>gs", function()
+      map("n", "<leader>gd", gitsigns.preview_hunk, "Preview Git hunk")
+      map("n", "<leader>gg", gitsigns.stage_hunk, "Stage Git hunk")
+      map("n", "<leader>gz", gitsigns.reset_hunk, "Reset Git hunk")
+      map("v", "<leader>gg", function()
         gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
       end, "Stage selected Git hunk")
-      map("v", "<leader>gr", function()
+      map("v", "<leader>gz", function()
         gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
       end, "Reset selected Git hunk")
       map("n", "<leader>gb", gitsigns.toggle_current_line_blame, "Toggle current-line blame")

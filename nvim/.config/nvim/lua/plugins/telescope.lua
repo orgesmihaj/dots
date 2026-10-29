@@ -1,3 +1,5 @@
+-- telescope.lua  ────────────────────────────────────────────────────╯
+
 return {
   "nvim-telescope/telescope.nvim",
   version = "v0.2.2",
@@ -13,11 +15,22 @@ return {
     { "<leader>fh", function() require("telescope.builtin").help_tags() end, desc = "Find help" },
     { "<leader>fr", function() require("telescope.builtin").oldfiles() end, desc = "Recent files" },
     { "<leader>fw", function() require("telescope.builtin").grep_string() end, desc = "Find word under cursor" },
+    { "<leader>fs", function() require("telescope.builtin").lsp_document_symbols() end, desc = "Find document symbols" },
   },
+  -- Search dotfiles too; most config lives under hidden directories.
   opts = {
     defaults = {
       mappings = {
         i = { ["<C-u>"] = false, ["<C-d>"] = false },
+      },
+      vimgrep_arguments = {
+        "rg", "--color=never", "--no-heading", "--with-filename", "--line-number", "--column",
+        "--smart-case", "--hidden", "--glob", "!**/.git/*",
+      },
+    },
+    pickers = {
+      find_files = {
+        find_command = { "rg", "--files", "--color=never", "--hidden", "--glob", "!**/.git/*" },
       },
     },
   },
