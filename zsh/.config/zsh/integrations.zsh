@@ -56,3 +56,22 @@ fi
 if command -v mise >/dev/null 2>&1; then
   eval "$(mise activate zsh)"
 fi
+
+# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+# ┃ Claude Code integration                                         ┃
+# ┃                                                                 ┃
+# ┃ Points current.json at the theme for the macOS appearance.      ┃
+# ┃ https://code.claude.com/docs/en/terminal-config                 ┃
+# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+_appearance_claude() {
+  local link=~/.claude/themes/current.json theme=catppuccin-mocha.json
+  [[ "$APPEARANCE" == light ]] && theme=modus-operandi.json
+
+  # Skip when the package isn't stowed; Claude Code reloads on each new link.
+  [[ -e "${link:h}/$theme" ]] || return 0
+  [[ "$(readlink "$link")" == "$theme" ]] || ln -sf "$theme" "$link"
+}
+
+_appearance_claude
+appearance_hooks+=(_appearance_claude)

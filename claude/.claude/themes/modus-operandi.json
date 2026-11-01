@@ -1,0 +1,32 @@
+{
+  "name": "Modus Operandi",
+  "base": "light",
+  "overrides": {
+    "claude": "#531ab6",
+    "claudeShimmer": "#721045",
+    "text": "#000000",
+    "inverseText": "#ffffff",
+    "inactive": "#595959",
+    "subtle": "#9f9f9f",
+    "suggestion": "#0031a9",
+    "permission": "#0031a9",
+    "remember": "#721045",
+    "success": "#006800",
+    "error": "#a60000",
+    "warning": "#6f5500",
+    "merged": "#531ab6",
+    "promptBorder": "#9f9f9f",
+    "planMode": "#005e8b",
+    "autoAccept": "#884900",
+    "bashBorder": "#721045",
+    "diffAdded": "#c1f2d1",
+    "diffRemoved": "#ffd8d5",
+    "diffAddedDimmed": "#d8f8e1",
+    "diffRemovedDimmed": "#ffe9e9",
+    "diffAddedWord": "#aee5be",
+    "diffRemovedWord": "#f3b5af",
+    "userMessageBackground": "#f2f2f2",
+    "userMessageBackgroundHover": "#e0e0e0",
+    "selectionBg": "#bdbdbd"
+  }
+}
