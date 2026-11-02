@@ -75,3 +75,23 @@ _appearance_claude() {
 
 _appearance_claude
 appearance_hooks+=(_appearance_claude)
+
+# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+# ┃ Codex integration                                               ┃
+# ┃                                                                 ┃
+# ┃ Points current.tmTheme at the theme for the macOS appearance.   ┃
+# ┃ https://learn.chatgpt.com/docs/config-file/config-reference     ┃
+# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+# Not `codex -c tui.theme=...`: -c turns off Codex's shared background server.
+_appearance_codex() {
+  local link=~/.codex/themes/current.tmTheme theme=appearance-dark.tmTheme
+  [[ "$APPEARANCE" == light ]] && theme=appearance-light.tmTheme
+
+  # Skip when the package isn't stowed.
+  [[ -e "${link:h}/$theme" ]] || return 0
+  [[ "$(readlink "$link")" == "$theme" ]] || ln -sf "$theme" "$link"
+}
+
+_appearance_codex
+appearance_hooks+=(_appearance_codex)
