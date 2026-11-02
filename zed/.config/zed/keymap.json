@@ -1,0 +1,191 @@
+// ─── zed keybindings  ─────────────────────────────────────────────╯
+
+// Mirrors the vscode package on top of Zed's VSCode base keymap.
+
+[
+	// ─── views ─────────────────────────────────────────────────────
+
+	{
+		"context": "Workspace",
+		"bindings": {
+			"cmd-1": "workspace::ToggleLeftDock",
+			"cmd-k 2": "agent::ToggleFocus",
+			"cmd-3": "pane::DeploySearch",
+			"cmd-5": "debug_panel::ToggleFocus",
+			"cmd-6": "diagnostics::Deploy",
+			"cmd-9": "git_panel::ToggleFocus",
+			"cmd-b": null
+		}
+	},
+
+	// ─── navigation ────────────────────────────────────────────────
+
+	{
+		"context": "Editor",
+		"bindings": {
+			"cmd-r": "outline::Toggle",
+			"cmd-b": "editor::GoToDefinition",
+			"alt-cmd-b": "editor::GoToImplementation",
+			"cmd-k cmd-k": "editor::Hover",
+			"cmd-[": "pane::GoBack",
+			"cmd-]": "pane::GoForward"
+		}
+	},
+
+	// ─── editing ───────────────────────────────────────────────────
+
+	{
+		"context": "Editor",
+		"bindings": {
+			"ctrl-cmd-g": "editor::SelectAllMatches",
+			"cmd-k cmd-h": "buffer_search::DeployReplace",
+			"cmd-k cmd-c": "editor::ToggleBlockComments",
+			"cmd-k cmd-s": "editor::SortLinesCaseSensitive",
+			"cmd-k cmd-f": "editor::Format",
+			"cmd-k cmd-a": "editor::ToggleCodeActions"
+		}
+	},
+	{
+		"context": "Workspace",
+		"bindings": {
+			"cmd-k cmd-z": "workspace::ToggleCenteredLayout"
+		}
+	},
+
+	// ─── refactor ──────────────────────────────────────────────────
+	// Zed can't filter code actions by kind, so extract opens the menu.
+
+	{
+		"context": "Editor",
+		"bindings": {
+			"cmd-k cmd-e": "editor::Rename",
+			"alt-cmd-m": "editor::ToggleCodeActions",
+			"cmd-k cmd-m": "editor::ToggleCodeActions",
+			"alt-cmd-v": "editor::ToggleCodeActions",
+			"cmd-k cmd-v": "editor::ToggleCodeActions"
+		}
+	},
+
+	// ─── run / debug ───────────────────────────────────────────────
+
+	{
+		"context": "Workspace",
+		"bindings": {
+			"cmd-k cmd-r": "task::Spawn",
+			"cmd-k cmd-d": "debugger::Start"
+		}
+	},
+	{
+		"context": "Workspace && debugger_running",
+		"bindings": {
+			"cmd-k cmd-d": null
+		}
+	},
+	{
+		"context": "Workspace && debugger_stopped",
+		"bindings": {
+			"cmd-k cmd-d": "debugger::Continue"
+		}
+	},
+	{
+		"context": "Workspace && debugger_session",
+		"bindings": {
+			"cmd-k cmd-n": "debugger::StepOver",
+			"cmd-k cmd-i": "debugger::StepInto",
+			"cmd-k cmd-o": "debugger::StepOut",
+			"cmd-k cmd-t": "debugger::Stop"
+		}
+	},
+
+	// Editor defaults use ⌘K ⌘D and ⌘K ⌘I, so repeat them here.
+	{
+		"context": "Editor",
+		"bindings": {
+			"cmd-k cmd-d": "debugger::Start",
+			"cmd-k cmd-b": "editor::ToggleBreakpoint"
+		}
+	},
+	{
+		"context": "debugger_running > Editor",
+		"bindings": {
+			"cmd-k cmd-d": null
+		}
+	},
+	{
+		"context": "debugger_stopped > Editor",
+		"bindings": {
+			"cmd-k cmd-d": "debugger::Continue"
+		}
+	},
+	{
+		"context": "debugger_session > Editor",
+		"bindings": {
+			"cmd-k cmd-i": "debugger::StepInto"
+		}
+	},
+
+	// ─── folding ───────────────────────────────────────────────────
+	// ⌘K ⌘[ ⌘] ⌘0 ⌘J ⌘1 ⌘2 ⌘L are Zed defaults.
+
+	// ─── files / windows ───────────────────────────────────────────
+
+	{
+		"context": "Pane",
+		"bindings": {
+			"shift-cmd-w": "pane::CloseAllItems",
+			"cmd-k cmd-x": "pane::CloseOtherItems",
+			"cmd-k cmd-\\": "pane::SplitDown",
+			"cmd-k w": null
+		}
+	},
+
+	// ─── window (w) — mirrors Ghostty and vim <C-w> ────────────────
+
+	{
+		"context": "Workspace",
+		"bindings": {
+			"cmd-k w s l": "pane::SplitRight",
+			"cmd-k w s j": "pane::SplitDown",
+			"cmd-k w h": "workspace::ActivatePaneLeft",
+			"cmd-k w l": "workspace::ActivatePaneRight",
+			"cmd-k w j": "workspace::ActivatePaneDown",
+			"cmd-k w k": "workspace::ActivatePaneUp"
+		}
+	},
+
+	// ─── git (⌘G) ──────────────────────────────────────────────────
+
+	{
+		"context": "Workspace",
+		"bindings": {
+			"cmd-k cmd-g": "git_panel::ToggleFocus",
+			"cmd-g cmd-f": "git::Fetch",
+			"cmd-g cmd-p": "git::Pull",
+			"cmd-g cmd-u": "git::Push",
+			"cmd-g cmd-n": "git::Branch",
+			"cmd-g cmd-s": "git::ViewStash"
+		}
+	},
+	{
+		"context": "Editor",
+		"bindings": {
+			"cmd-g cmd-b": "git::Blame",
+			"cmd-g cmd-g": "git::StageFile",
+			"cmd-g cmd-z": "git::Restore",
+			"cmd-g cmd-d": "git::OpenFileDiff",
+			"cmd-g cmd-j": "editor::GoToHunk",
+			"cmd-g cmd-k": "editor::GoToPreviousHunk",
+			"cmd-g cmd-h": "git::FileHistory",
+			"cmd-g cmd-i": "git::AddToGitignore"
+		}
+	},
+
+	// ─── other ─────────────────────────────────────────────────────
+
+	{
+		"context": "Picker",
+		"bindings": {
+			"cmd-k escape": "menu::Cancel"
+		}
+	}
+]

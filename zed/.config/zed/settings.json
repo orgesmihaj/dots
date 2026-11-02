@@ -1,0 +1,77 @@
+// ─── zed settings  ────────────────────────────────────────────────╯
+
+{
+  "suggest_extensions": false,
+  "auto_update": false,
+  "ui_font_family": "Inter",
+  "buffer_line_height": {
+    "custom": 1.75
+  },
+  "title_bar": {
+    "show_sign_in": false
+  },
+  "auto_install_extensions": {
+    "catppuccin": true,
+    "catppuccin-icons": true,
+    "modus-themes": true
+  },
+  "cli_default_open_behavior": "new_window",
+  "icon_theme": "Catppuccin Macchiato",
+  "vim": {
+    "default_mode": "normal"
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+    "anthropic_retention": false
+  },
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "vim_mode": false,
+  "preview_tabs": {
+    "enabled": false
+  },
+  "tab_bar": {
+    "show": false
+  },
+  "minimap": {
+    "show": "never"
+  },
+  "scrollbar": {
+    "axes": {
+      "horizontal": false,
+      "vertical": false
+    }
+  },
+  "current_line_highlight": "line",
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000
+    }
+  },
+  "buffer_font_fallbacks": [
+    "Menlo",
+    "monospace"
+  ],
+  "buffer_font_family": "JetBrains Mono",
+  "show_whitespaces": "selection",
+  "hard_tabs": true,
+  "tab_size": 2,
+  "agent_servers": {
+    "codex-acp": {
+      "type": "registry"
+    },
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
+  "base_keymap": "VSCode",
+  "ui_font_size": 16,
+  "buffer_font_size": 13.5,
+  "theme": {
+    "mode": "system",
+    "light": "Modus Operandi",
+    "dark": "Catppuccin Mocha",
+  },
+}
