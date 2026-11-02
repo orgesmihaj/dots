@@ -52,12 +52,11 @@ function aliases {
 function keymap {
   case "$1" in
     vscode)  _view "$HOME/Library/Application Support/Code/User/keybindings.json" ;;
-    cursor)  _view "$HOME/Library/Application Support/Cursor/User/keybindings.json" ;;
     zed)     _view "$HOME/.config/zed/keymap.json" ;;
     zsh)     _view "${ZDOTDIR:-$HOME/.config/zsh}/keybindings.zsh" ;;
     *)
       echo "Usage: keymap <app>"
-      echo "Available: vscode, cursor, zed, zsh"
+      echo "Available: vscode, zed, zsh"
       ;;
   esac
 }
