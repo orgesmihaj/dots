@@ -2,7 +2,7 @@
 
 # ─── apperance ─────────────────────────────────────────────────────
 
-theme = "Catppuccin Mocha"
+theme = "light:Modus Operandi,dark:Catppuccin Mocha"
 
 window-colorspace = display-p3
 window-padding-color = extend-always
