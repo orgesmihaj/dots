@@ -1,4 +1,5 @@
 .DS_Store
+.idea
 .zsh_history
 cache/
 nvim.log
