@@ -1,0 +1,5 @@
+# Global tool versions; mise activates these in every shell.
+# https://mise.jdx.dev/configuration.html
+
+[tools]
+node = "lts"
