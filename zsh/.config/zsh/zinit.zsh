@@ -2,6 +2,7 @@
 
 # Homebrew owns the manager; Zinit keeps plugins in its user data directory.
 local zinit_prefix="${HOMEBREW_PREFIX:-}"
+
 if [[ -z "$zinit_prefix" ]]; then
   if [[ -r /opt/homebrew/opt/zinit/zinit.zsh ]]; then
     zinit_prefix=/opt/homebrew

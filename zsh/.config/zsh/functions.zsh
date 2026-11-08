@@ -20,6 +20,7 @@ function mkcd {
 function y {
   local tmp="$(mktemp -t yazi-cwd.XXXXXX)" cwd
   yazi "$@" --cwd-file="$tmp"
+
   if cwd="$(<"$tmp")" && [[ -n "$cwd" && "$cwd" != "$PWD" ]]; then
     builtin cd -- "$cwd"
   fi
@@ -51,12 +52,13 @@ function aliases {
 
 function keymap {
   case "$1" in
+    rex)     _view "$HOME/.config/rex/init.lua" ;;
     vscode)  _view "$HOME/Library/Application Support/Code/User/keybindings.json" ;;
     zed)     _view "$HOME/.config/zed/keymap.json" ;;
     zsh)     _view "${ZDOTDIR:-$HOME/.config/zsh}/keybindings.zsh" ;;
     *)
       echo "Usage: keymap <app>"
-      echo "Available: vscode, zed, zsh"
+      echo "Available: rex, vscode, zed, zsh"
       ;;
   esac
 }
