@@ -28,6 +28,14 @@ brew "yq"
 brew "tree-sitter-cli"
 brew "neovim"
 
+# PHP
+
+brew "shivammathur/php/php@8.4"
+brew "shivammathur/extensions/phpredis@8.4"
+brew "composer"
+brew "nginx"
+brew "dnsmasq"
+
 # Applications and fonts
 
 cask "font-jetbrains-mono-nerd-font"
